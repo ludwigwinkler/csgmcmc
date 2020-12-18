@@ -71,6 +71,7 @@ if use_cuda:
     cudnn.deterministic = True
 
 def update_params(lr,epoch):
+    # buf = momentum
     for p in net.parameters():
         if not hasattr(p,'buf'):
             p.buf = torch.zeros(p.size()).cuda(device_id)
